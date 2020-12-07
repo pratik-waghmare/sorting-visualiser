@@ -1,0 +1,83 @@
+// * Colors
+
+$primary: blueviolet;
+$secondary: lightseagreen;
+$light: #f1f3f8;
+
+// * Media Queries
+
+@mixin tablet {
+  @media screen and (max-width: 1017px) {
+    @content;
+  }
+}
+
+@mixin landscape {
+  @media only screen and (max-width: 810px) and (orientation: landscape) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: 810px) {
+    @content;
+  }
+}
+
+@mixin smallphones {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+// * Mixins
+@mixin button {
+  @include subHeading;
+  display: inline-block;
+  padding: 0.3em 0.6em;
+  text-align: center;
+  background: $primary;
+  color: #fff;
+  outline: none;
+  border-radius: 0.2em;
+  cursor: pointer;
+}
+
+$gratio: 1.618;
+$fontSize: $gratio * 1rem;
+
+@mixin heading {
+  font-size: 1.5 * $fontSize;
+  font-weight: 700;
+  color: #000;
+
+  @include smallphones {
+    font-size: 0.9 * $fontSize;
+  }
+
+  @include landscape {
+    font-size: 0.8 * $fontSize;
+  }
+}
+
+@mixin subHeading {
+  font-size: 0.65 * $fontSize;
+  font-weight: 600;
+
+  @include tablet {
+    font-size: 0.5 * $fontSize;
+  }
+}
+
+@mixin text {
+  font-size: 0.55 * $fontSize;
+  font-weight: 400;
+}
+
+@mixin label {
+  font-size: 0.55 * $fontSize;
+  font-weight: 400;
+
+  @include tablet {
+    font-size: 0.5 * $fontSize;
+  }
+}

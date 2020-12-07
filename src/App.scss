@@ -1,0 +1,211 @@
+@import "./devices.scss";
+
+.input-range__label {
+  display: none;
+}
+
+.App {
+  // background: lightblue;
+  height: calc(100vh - 4em);
+  width: 100vw;
+  // padding: 1em;
+  // background: $light;
+}
+
+.Layout {
+  height: 100%;
+  width: 100%;
+  padding: 1em;
+  // max-width: 1440px;
+  // max-height: 1080px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 10% auto 20%;
+  grid-template-areas:
+    "top top"
+    "content content"
+    "left buttons";
+
+  @include tablet {
+    grid-template-rows: 10% auto 20%;
+  }
+
+  @include mobile {
+    grid-template-rows: 10% auto 15% 20%;
+    grid-template-areas:
+      "top top"
+      "content content"
+      "left left"
+      "buttons buttons";
+  }
+
+  @include landscape {
+    grid-template-columns: 4fr 6fr;
+    grid-template-rows: 10% auto max-content 5%;
+    grid-template-areas:
+      "content top"
+      "content buttons"
+      "content left"
+      "content .";
+  }
+
+  @include smallphones {
+    grid-template-rows: 10% auto 30% 20%;
+  }
+}
+
+.Top {
+  grid-area: top;
+  margin: 0 1em;
+  align-self: center;
+  // background: pink;
+  // display: grid;
+  // grid-template-columns: auto auto;
+}
+
+.Header a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1em;
+}
+
+.Logo {
+  padding-top: 0.2em;
+  & svg {
+    height: 2.8em;
+    width: 2.8em;
+    color: $primary;
+  }
+}
+
+.Title {
+  @include heading;
+
+  &__part {
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.Content {
+  grid-area: content;
+  background: rgb(255, 255, 255);
+  border: 0.07em solid #000;
+  border-radius: 0.5em;
+  margin: 0 1em;
+  padding: 0.8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include smallphones {
+    margin: 1em;
+  }
+  // flex-direction: row;
+}
+
+.Bars {
+  display: flex;
+  align-items: flex-end;
+  // justify-content: center;
+  width: 100%;
+}
+
+.Left {
+  width: 100%;
+  grid-area: left;
+  display: grid;
+  grid-template-columns: auto auto;
+
+  @include smallphones {
+    justify-self: center;
+    grid-template-columns: auto;
+    // width: 80%;
+  }
+
+  @include landscape {
+    grid-template-columns: 4fr 6fr;
+  }
+}
+
+.SubHeading {
+  @include subHeading;
+}
+
+.Size {
+  place-self: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.4em;
+  // background: lightblue;
+  text-align: center;
+
+  & li {
+    height: 2em;
+    // width: 100%;
+  }
+}
+
+.Speed {
+  width: 90%;
+  place-self: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.4em;
+  // background: blue;
+
+  & li {
+    height: 2em;
+  }
+}
+
+.Buttons {
+  grid-area: buttons;
+  // background: violet;
+  place-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+
+  @include smallphones {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.SmallButton {
+  @include button;
+  @include smallphones {
+    padding: 0.7em 1em;
+  }
+}
+
+.Button {
+  @include button;
+  font-weight: 400;
+  margin: 0.4em;
+  padding: 0.4em 1.2em;
+  background: $primary;
+  color: #fff;
+  border: 0.06em solid #000;
+
+  &__reset {
+    background: $secondary;
+  }
+
+  &__generate {
+    background: #f3c623;
+    padding: 1em 3em;
+  }
+}
+
+.Label {
+  @include label;
+  font-weight: 500;
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  background: #fff;
+  border: 0.07em solid #000;
+  // margin: 0.2em 0.6em;
+  border-radius: 0.3em;
+}
