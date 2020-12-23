@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Sorting Visualiser
+Visualise different sorting algorithms like merge sort, quick sort, selection sort, insertion sort, and bubble sort.
 
 ## Available Scripts
 
